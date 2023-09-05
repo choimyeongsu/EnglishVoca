@@ -57,7 +57,7 @@ export default function VocaLike(props){
         })
         .then(res=>{
             if(res.ok){
-                
+                console.log("then res")
                 setLike(!like);
             }
         });

@@ -31,7 +31,7 @@
       "eng": "house",
       "kor": "집",
       "isDone": false,
-      "like": true,
+      "like": false,
       "id": 8
     },
     {
@@ -63,7 +63,7 @@
       "eng": "apple",
       "kor": "사과",
       "isDone": false,
-      "like": false,
+      "like": true,
       "id": 13
     },
     {
