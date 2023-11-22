@@ -1,12 +1,25 @@
 import { useState } from "react"
 
-export default function VocaWord(props)
+interface IProps{
+    word : IWord;
+}
+
+export interface IWord{
+    day:string;
+    eng:string;
+    kor:string;
+    isDone:boolean;
+    id:number;
+    like:boolean;
+}
+
+export default function VocaWord({word:w}:IProps)
 {
-    const [word,setWord] = useState(props.word)
+    const [word,setWord] = useState(w)
     const [isShow, setIsShow] = useState(false);
     const [isDone, setIsDone] = useState(word.isDone);
     const [like, setLike] = useState(word.like);
-    
+       
 
     function toggleShow(){
         setIsShow(!isShow)
@@ -35,7 +48,9 @@ export default function VocaWord(props)
                 method : 'DELETE', 
             }).then(res=>{
                 if(res.ok){
-                    setWord({id:0});
+                    setWord({
+                        ...word,
+                        id:0});
                 }
             })
         }

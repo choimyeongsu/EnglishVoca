@@ -1,10 +1,10 @@
-import DayList from './components/DayList';
+import DayList from './components/DayList.tsx';
 import Header from './components/Header';
 import './index';
-import Day from './components/Day';
+import Day from './components/Day.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EmptyPage from './components/EmptyPage';
-import CreateWord from './components/CreateWord';
+import CreateWord from './components/CreateWord.tsx';
 import CreateDay from './components/CreateDay';
 import DeleteDay from './components/DeleteDay';
 import LikeWord from './components/LikeWord';

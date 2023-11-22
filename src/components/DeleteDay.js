@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useFetch from "../hooks/useFetch"
+import useFetch from "../hooks/useFetch.ts"
 
 export default function DeleteDay() {
     const navigate = useNavigate();

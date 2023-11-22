@@ -1,12 +1,12 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import VocaWord from "./VocaWord";
-import useFetch from "../hooks/useFetch";
+import VocaWord, { IWord } from "./VocaWord.tsx";
+import useFetch from "../hooks/useFetch.ts";
 
 export default function Day() {
     const navigate = useNavigate();
     const { dayParams } = useParams();
     const [day, setDay] = useFetch(`http://localhost:3001/days`)
-    const words = useFetch(`http://localhost:3001/words?day=${dayParams}`)
+    const words :IWord = useFetch(`http://localhost:3001/words?day=${dayParams}`)
     
 
     function removeDay() {
@@ -21,7 +21,8 @@ export default function Day() {
             })
         }
     }
-    return <>
+    return (
+        <>
         <h2>Day{dayParams}</h2>
         <Link to={`/day/${Number(dayParams)-1}`}>{`◀`}</Link>
         <button style={{margin:"0px 20px"}}onClick={removeDay}>Day{dayParams} 삭제</button>
@@ -29,10 +30,10 @@ export default function Day() {
         <table>
             <tbody>
                 {words.map(word => (
-                    <VocaWord word={word} />
+                    <VocaWord word={word} key={word.id}/>
                 ))}
             </tbody>
         </table>
-    </>
-
+        </>
+    )
 }
